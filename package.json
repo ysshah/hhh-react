@@ -1,0 +1,16 @@
+{
+  "name": "hhh-server",
+  "version": "0.1.0",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
