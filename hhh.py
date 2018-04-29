@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import datetime, timedelta
-import os
 import sqlite3
 
 from colorama import Fore
@@ -14,7 +13,7 @@ DATE_FORMAT = '%m/%d/%y'
 
 
 def getDB():
-    return sqlite3.connect(os.path.join(os.path.dirname(__file__), 'fresh.db'))
+    return sqlite3.connect('/Users/yash/Documents/hhh/fresh.db')
 
 
 def getSubreddit():
