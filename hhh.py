@@ -3,13 +3,13 @@ import argparse
 from datetime import datetime, timedelta
 import sqlite3
 
-from colorama import Fore
 import praw
 
 from config import CLIENT_ID, CLIENT_SECRET, USER_AGENT
 
 
 DATE_FORMAT = '%m/%d/%y'
+RED, GREEN, RESET = '\u001b[31m', '\u001b[32m', '\u001b[0m'
 
 
 def getDB():
@@ -107,14 +107,14 @@ def fetchTopPosts(sub, time_filter):
 
 def printPost(post_id, title, url, score):
     if 'video' in title.lower():
-        color = Fore.RED
+        color = RED
     elif 'album' in title.lower():
-        color = Fore.BLUE
+        color = GREEN
     else:
-        color = Fore.BLACK
+        color = ''
 
     print('{}{:5d} | {} | https://redd.it/{}'.format(color, score, title, post_id))
-    print('      | {}{}'.format(url, Fore.RESET))
+    print('      | {}{}'.format(url, RESET))
 
 
 if __name__ == '__main__':
