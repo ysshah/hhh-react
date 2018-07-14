@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 import argparse
 from datetime import datetime, timedelta
+import os
 import sqlite3
 
 import praw
-
-from config import CLIENT_ID, CLIENT_SECRET, USER_AGENT
 
 
 DATE_FORMAT = '%m/%d/%y'
@@ -17,7 +16,11 @@ def getDB():
 
 
 def getSubreddit():
-    reddit = praw.Reddit(client_id=CLIENT_ID, client_secret=CLIENT_SECRET, user_agent=USER_AGENT)
+    reddit = praw.Reddit(
+        client_id=os.environ['REDDIT_CLIENT_ID'],
+        client_secret=os.environ['REDDIT_CLIENT_SECRET'],
+        user_agent=os.environ['REDDIT_USER_AGENT']
+    )
     sub = reddit.subreddit('hiphopheads')
     return sub
 
