@@ -120,7 +120,7 @@ def printPost(post_id, title, url, score):
     print('      | {}{}'.format(url, RESET))
 
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('dates', nargs='*')
     parser.add_argument('-t', '--time_filter', default='week')
@@ -143,3 +143,7 @@ if __name__ == '__main__':
     else:
         print('Retrieving top FRESH posts this {}...'.format(args.time_filter))
         fetchTopPosts(getSubreddit(), args.time_filter)
+
+
+if __name__ == '__main__':
+    main()
